@@ -36,7 +36,7 @@ public class CageController : MonoBehaviour {
 
 	public delegate void EventHandler(GameObject e);
 	public event EventHandler CrashEvent;
-	
+	GameObject wolf;
 	
 	// Use this for initialization
 	void Start () {
@@ -53,9 +53,13 @@ public class CageController : MonoBehaviour {
 		initText();
 		fltText.text = weight + "";
 		
-		otherItems = new ArrayList();		
-		addItem(GameObject.Find("Wolf"));
+		otherItems = new ArrayList();	
+		GameObject wolf	 = GameObject.Find("Wolf");
+		addItem(wolf);
 		setWolfText("");
+		
+						//wolf.transform.Find(".020").gameObject.transform.Rotate(180,0,0, Space.Self);
+
 
 	}
 	
@@ -168,6 +172,7 @@ public class CageController : MonoBehaviour {
 		if (setFinalState == FinalState.HURT) {
 				print("EXPLODE AND HURT");
 				explode();
+				//wolf.transform.Rotate(0,0,180);
 				setWolfText("!@$% :(");
 		}
 		if (setFinalState == FinalState.NOTHING) {

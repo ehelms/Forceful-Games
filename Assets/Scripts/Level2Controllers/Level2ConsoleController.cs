@@ -15,6 +15,9 @@ public class Level2ConsoleController : MonoBehaviour {
 	private GameObject Piston2;
 	private CageController cage;
 	
+	string usingCont = "Press E again to release the Controller.  Press T to fling crate.";
+	string nearCont = "Press E to use the Controller.";
+	
 	enum CraneHandStates {
 		STATIONARY_DOWN, MOVING_DOWN, MOVING_UP, STATIONARY_UP
 	};
@@ -43,16 +46,19 @@ public class Level2ConsoleController : MonoBehaviour {
 		}
 		
 		if(Input.GetKeyUp(KeyCode.E)) {
-			ShowingControllerUI = !ShowingControllerUI;
-			if (ShowingControllerUI) {
+			if (!ShowingControllerUI) {
+				ShowingControllerUI = true;
 				GController.HideInfoBox();
 				GController.DisablePlayer();
-				GController.ShowMousePointer();
-				GController.ShowInfoBox("Press E again to release the Controller.  Press T to fling crate.");
+				//GController.ShowMousePointer();
+				GController.ShowInfoBox(usingCont);
 			}
 			else {
+				ShowingControllerUI = false;
+				GController.HideInfoBox();
+				GController.ShowInfoBox(nearCont);
 				GController.EnablePlayer();
-				GController.HideMousePointer();
+				//GController.HideMousePointer();
 			}
 		}
 		
@@ -181,7 +187,7 @@ public class Level2ConsoleController : MonoBehaviour {
 	void OnTriggerEnter(Collider other) {
 		if (other.tag == "Player") {
 			NearController = true;
-			GController.ShowInfoBox("Press E to use the Controller.");
+			GController.ShowInfoBox(nearCont);
 		}
 	}
 	
