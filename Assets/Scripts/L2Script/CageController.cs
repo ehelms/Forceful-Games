@@ -70,6 +70,9 @@ public class CageController : MonoBehaviour {
 	}
 	
 	void restoreCageLocation() {
+		if (cage == null) {
+			return;	
+		}		
 		GameObject[] list =  {cage, leftSide, rightSide, frontSide, backSide };
 		for(int i = 0; i < list.Length; i++) {
 			list[i].transform.position = cageLoc[i,0];
@@ -202,6 +205,7 @@ public class CageController : MonoBehaviour {
 	
 		
 	public  void reset() {
+		currentState = State.INITIAL;
 		restoreCageLocation();
 		otherItems = new ArrayList();		
 		addItem(GameObject.Find("Wolf"));

@@ -88,6 +88,7 @@ public class L2ProblemController : MonoBehaviour {
 	}
 	
 	public void newProblem() {
+		cage.reset();
 		resetRams();
 		currentProblem = (Problem) problemList[0];
 		cage.setWeight(currentProblem.cageWeight);
