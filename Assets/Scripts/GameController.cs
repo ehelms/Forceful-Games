@@ -38,9 +38,14 @@ public class GameController : MonoBehaviour {
 	private const long maxRamsKilled = 3;
 	private long currentRamsKilled = 0;
 	private int pointsForRamL1 = 5;
+	
 	private int pointsForL1Quiz = 5;
 	private int maxL1Quiz = 2;
 	private int currL1Quiz = 0;
+	
+	private int pointsForL2Quiz = 5;
+	private int maxL2Quiz = 2;
+	private int currL2Quiz = 0;	
 	
 	private int ObjectiveIdx = 0;
 	
@@ -52,7 +57,7 @@ Door once you unlock it.",
 	* You must crush the Ram 3 times.
 	* Play quiz and get 2 question right.",
 @"Walk to level 2 and complete the following tasks to escape from UNC Physics Lab.
-	* You must break the cage to free the Wolf.
+	* You must break the cage to free the Wolf three times.
 	* Play quiz and get 2 question right.",
 };
 	
@@ -60,6 +65,10 @@ Door once you unlock it.",
 		if(quizName == "quiz1" && currL1Quiz < maxL1Quiz ) {
 			Student.addPoints(pointsForL1Quiz);
 			currL1Quiz++;
+		}
+		if(quizName == "quiz2" && currL2Quiz < maxL2Quiz ) {
+			Student.addPoints(pointsForL2Quiz);
+			currL2Quiz++;
 		}
 		
 	}
