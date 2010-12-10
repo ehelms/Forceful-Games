@@ -25,7 +25,7 @@ public class GameController : MonoBehaviour {
 	private string InfoMsg = "";
 	private int MsgIdx = 0;
 	
-	private bool CHEAT = true;
+	private bool CHEAT = false;
 	private int startLevel = 0;
 	
 	public Texture MessageBackGroundTexture;
@@ -132,14 +132,20 @@ Door once you unlock it.",
 	
 	void DoMenuWindow(int wid) {
 		GUILayout.Label("Current Objective: ");
-		GUILayout.BeginHorizontal ();
+		GUILayout.BeginVertical();
 		if (ObjectiveIdx >=0 && ObjectiveIdx <= Objectives.Length) {
 			GUILayout.TextArea(Objectives[ObjectiveIdx]);
+			GUILayout.Label("Tools Guide: ");
+			GUILayout.TextArea(
+@"1 - Calculator
+2 - Measuring Tape. Click Mouse button once at the start and once at end end to see the distance between two points.
+3 - Weighing Balance
+4 - Formula Sheet.");
 		}
 		else {
 			GUILayout.TextArea("You don't have any objective now.");
 		}
-		GUILayout.EndHorizontal();
+		GUILayout.EndVertical();
 	}
 	
 	void DoWindow(int wid) {

@@ -9,7 +9,6 @@ public class WolfController : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		Player = GameObject.Find("Player");
-
 		fltText = this.transform.Find("WolfText").gameObject.GetComponent("TextMesh") as TextMesh;
 	}
 	

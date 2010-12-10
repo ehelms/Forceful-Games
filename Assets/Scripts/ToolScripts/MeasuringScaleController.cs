@@ -81,6 +81,7 @@ public class MeasuringScaleController : BaseToolController {
 				Vector3 End = EndObject.transform.position;
 				float dist = Mathf.Sqrt((Start.x - End.x)*(Start.x - End.x) + (Start.z - End.z)*(Start.z - End.z));
 				Controller.ShowMessageBox("Distance is : " + dist);
+				state = NONE;
 				hideTool();
 			//
 		}
