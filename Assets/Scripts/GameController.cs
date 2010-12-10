@@ -26,7 +26,7 @@ public class GameController : MonoBehaviour {
 	private int MsgIdx = 0;
 	
 	private bool CHEAT = true;
-	private int startLevel = 2;
+	private int startLevel = 0;
 	
 	public Texture MessageBackGroundTexture;
 	public Texture OkTexture;
@@ -110,9 +110,15 @@ Door once you unlock it.",
 		}
 		
 		if (NonModalMessage) {
-			GUI.Label(new Rect((Screen.width - InfoMsgTexture.width)/2, Screen.height - InfoMsgTexture.height -50, 
-				InfoMsgTexture.width, InfoMsgTexture.height), InfoMsg);
+			GUILayout.Window(0, new Rect((Screen.width - MessageBackGroundTexture.width)/2, (Screen.height - 100 - 10), MessageBackGroundTexture.width,
+				100), DoInfoWindow, "");
 		}
+	}
+	
+	void DoInfoWindow(int wid) {
+		GUILayout.BeginHorizontal();
+		GUILayout.TextArea(InfoMsg);
+		GUILayout.EndHorizontal();
 	}
 	
 	void DoMenuWindow(int wid) {

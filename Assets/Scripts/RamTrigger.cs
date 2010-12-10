@@ -58,7 +58,7 @@ public class RamTrigger : MonoBehaviour {
 	private void randomize() {
 		float location = Random.Range(maxLocation, minLocation);
 		transform.position = new Vector3(location, transform.position.y,transform.position.z);
-		GameObject marker = GameObject.Find("LaunchMarker");
+		//GameObject marker = GameObject.Find("LaunchMarker");
 		//print("Distance: " + (marker.transform.position.x - location));
 	}
 	

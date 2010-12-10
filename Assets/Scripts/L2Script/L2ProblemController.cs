@@ -42,10 +42,7 @@ public class L2ProblemController : MonoBehaviour {
 		problemList = new ArrayList();
 		loadProblems();		
 		newProblem();
-		
-	
 	}
-	
 	
 	void loadProblems() {
 		FPSInputController	json = GameObject.Find("Player").GetComponent("FPSInputController") as FPSInputController;	
@@ -97,6 +94,14 @@ public class L2ProblemController : MonoBehaviour {
 		}
 	}
 	
+	public string GetProblemText() {
+		if (currentProblem == null) return null;
+		string txt = "";
+		txt = "Cage of weight " + currentProblem.cageWeight + "g needs " +
+			currentProblem.finalForce + "N (force) to break it. Cage will accelerate at a rate of " + currentProblem.accel + "m/s/s." + 
+			" Load the cage with the Ram(s) to make it heavier, so that it experience enough force to break, when it hits the block.";
+		return txt;
+	}
 	
 	// Update is called once per frame
 	void Update () {

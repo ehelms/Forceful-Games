@@ -15,6 +15,8 @@ public class Level2ConsoleController : MonoBehaviour {
 	private GameObject Piston2;
 	private CageController cage;
 	
+	private L2ProblemController L2PC;
+	
 	enum CraneHandStates {
 		STATIONARY_DOWN, MOVING_DOWN, MOVING_UP, STATIONARY_UP
 	};
@@ -27,7 +29,7 @@ public class Level2ConsoleController : MonoBehaviour {
 		Player = GameObject.Find("Player");
 		GController = GameObject.Find("Controller").GetComponent("GameController") as GameController;
 		cage = GameObject.Find("CageBase").GetComponent("CageController")  as CageController;
-		
+		L2PC = GameObject.Find("FlowControllerObject").GetComponent("L2ProblemController") as L2ProblemController;
 		CraneLRHandle = GameObject.Find("L2CraneTopBlockLR");
 		Piston2 = GameObject.Find("Piston2");
 	}
@@ -48,7 +50,7 @@ public class Level2ConsoleController : MonoBehaviour {
 				GController.HideInfoBox();
 				GController.DisablePlayer();
 				GController.ShowMousePointer();
-				GController.ShowInfoBox("Press E again to release the Controller.  Press T to fling crate.");
+				GController.ShowInfoBox(L2PC.GetProblemText() + "\nPress E again to release the Controller.  Press T to fling crate.");
 			}
 			else {
 				GController.EnablePlayer();

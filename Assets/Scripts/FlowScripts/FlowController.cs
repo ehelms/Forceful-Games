@@ -19,6 +19,7 @@ public class FlowController : MonoBehaviour {
 		level1FlowController.enabled = false;
 		level2FlowController = this.GetComponent("Level2FlowController") as Level2FlowController;
 		level2FlowController.enabled = false;
+		EndController = GetComponent("GameEndsController") as GameEndsController;
 		
 		introFlowController.FinishedEvent += introFlowControllerListener;
 		level1FlowController.FinishedEvent += level1FlowControllerListener;
@@ -33,6 +34,13 @@ public class FlowController : MonoBehaviour {
 				level1FlowControllerListener(null);
 			}
 		} 
+	}
+	
+	void Update() {
+		if (Input.GetKeyUp(KeyCode.J)) {
+			// to test
+			level2FlowControllerListener(gameObject);
+		}
 	}
 	
 	void startStory(){
@@ -55,11 +63,6 @@ public class FlowController : MonoBehaviour {
 	void level2FlowControllerListener(GameObject g){
 		level2FlowController.enabled = false;
 		EndController.enabled = true;
-		EndController.ShowGameEnds();
-	}
-	
-	// Update is called once per frame
-	void Update () {
-
+		StartCoroutine(EndController.ShowGameEnds());
 	}
 }
