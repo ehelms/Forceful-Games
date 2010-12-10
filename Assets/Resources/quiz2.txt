@@ -2,22 +2,22 @@
   {"question": "A 100N force causes an object to accelerate at 2 m/s^2.  What is the  mass of the object?",
    "answers" : [ "0.02kg", "50kg", "102kg", "200kg"],
    "correct" : "50kg",
-   "hints"   : ["Hint 1", "Hint 2", "Hint 3"]
+   "hints"   : ["Remember that the Force law says that Force = Mass * Acceleration.", "Think about how, since F = ma, the mass will be determined by the magnitude of the force and the acceleration.", "Try dividing the force by the acceleration."]
   },
   {"question": "A car's velocity changes from 0 m/s to 40 m/s in 5 seconds.  What is the average acceleration of the car?",
    "answers" : [ "5 m/s^2", "8 m/s^2", "35 m/s^2", "200 m/s^2"],
    "correct" : "8 m/s^2",
-   "hints"   : ["Hint 1", "Hint 2", "Hint 3"]
+   "hints"   : ["The equation for acceleration is velocity divided by time.", "Remember that acceleration is a measure of the change in velocity.", "Try dividing the difference in velocity by the number of seconds."]
   },
  {"question": "A car starts from rest and accelerates uniformly at 1.7 m/s^2.  How long will it take the car to reach a speed of 24 m/s?",
    "answers" : [ "24 sec", "58 sec", "14 sec", "2 sec"],
    "correct" : "14 m/s^2",
-   "hints"   : ["Hint 1", "Hint 2", "Hint 3"]
+   "hints"   : ["Remember that the formula for speed is v = a*t.", "Remember that the velocity will increase per second based on the acceleration.  Thus, every 1 second the speed increases by 1.7 m/s.", "Try dividing the speed by the acceleration."]
   },
  {"question": "How much force is needed to accelerate a 500kg car at a rate of  4.00 m/s^2?",
    "answers" : [ "125 N", "2500 N", "2,000 N", "4,000 N"],
    "correct" : "2,000 N",
-   "hints"   : ["Hint 1", "Hint 2", "Hint 3"]
+   "hints"   : ["Remember that the Force law says that Force = Mass * Acceleration.", "Think about how, since F = ma, the mass will be determined by the magnitude of the force and the acceleration.", "Try dividing the force by the acceleration."]
   }
 
 ]
