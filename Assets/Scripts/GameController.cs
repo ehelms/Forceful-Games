@@ -25,8 +25,8 @@ public class GameController : MonoBehaviour {
 	private string InfoMsg = "";
 	private int MsgIdx = 0;
 	
-	private bool CHEAT = true;
-	private int startLevel = 2;
+	private bool CHEAT = false;
+	private int startLevel = 0;
 	
 	public Texture MessageBackGroundTexture;
 	public Texture OkTexture;
@@ -38,9 +38,14 @@ public class GameController : MonoBehaviour {
 	private const long maxRamsKilled = 3;
 	private long currentRamsKilled = 0;
 	private int pointsForRamL1 = 5;
+	
 	private int pointsForL1Quiz = 5;
 	private int maxL1Quiz = 2;
 	private int currL1Quiz = 0;
+	
+	private int pointsForL2Quiz = 5;
+	private int maxL2Quiz = 2;
+	private int currL2Quiz = 0;	
 	
 	private int ObjectiveIdx = 0;
 	
@@ -52,7 +57,7 @@ Door once you unlock it.",
 	* You must crush the Ram 3 times.
 	* Play quiz and get 2 question right.",
 @"Walk to level 2 and complete the following tasks to escape from UNC Physics Lab.
-	* You must break the cage to free the Wolf.
+	* You must break the cage to free the Wolf three times.
 	* Play quiz and get 2 question right.",
 };
 	
@@ -60,6 +65,10 @@ Door once you unlock it.",
 		if(quizName == "quiz1" && currL1Quiz < maxL1Quiz ) {
 			Student.addPoints(pointsForL1Quiz);
 			currL1Quiz++;
+		}
+		if(quizName == "quiz2" && currL2Quiz < maxL2Quiz ) {
+			Student.addPoints(pointsForL2Quiz);
+			currL2Quiz++;
 		}
 		
 	}
@@ -110,21 +119,33 @@ Door once you unlock it.",
 		}
 		
 		if (NonModalMessage) {
-			GUI.Label(new Rect((Screen.width - InfoMsgTexture.width)/2, Screen.height - InfoMsgTexture.height -50, 
-				InfoMsgTexture.width, InfoMsgTexture.height), InfoMsg);
+			GUILayout.Window(0, new Rect((Screen.width - MessageBackGroundTexture.width)/2, (Screen.height - 100 - 10), MessageBackGroundTexture.width,
+				100), DoInfoWindow, "");
 		}
+	}
+	
+	void DoInfoWindow(int wid) {
+		GUILayout.BeginHorizontal();
+		GUILayout.TextArea(InfoMsg);
+		GUILayout.EndHorizontal();
 	}
 	
 	void DoMenuWindow(int wid) {
 		GUILayout.Label("Current Objective: ");
-		GUILayout.BeginHorizontal ();
+		GUILayout.BeginVertical();
 		if (ObjectiveIdx >=0 && ObjectiveIdx <= Objectives.Length) {
 			GUILayout.TextArea(Objectives[ObjectiveIdx]);
+			GUILayout.Label("Tools Guide: ");
+			GUILayout.TextArea(
+@"1 - Calculator
+2 - Measuring Tape. Click Mouse button once at the start and once at end end to see the distance between two points.
+3 - Weighing Balance
+4 - Formula Sheet.");
 		}
 		else {
 			GUILayout.TextArea("You don't have any objective now.");
 		}
-		GUILayout.EndHorizontal();
+		GUILayout.EndVertical();
 	}
 	
 	void DoWindow(int wid) {

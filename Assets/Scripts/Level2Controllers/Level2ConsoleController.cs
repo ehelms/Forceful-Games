@@ -15,6 +15,11 @@ public class Level2ConsoleController : MonoBehaviour {
 	private GameObject Piston2;
 	private CageController cage;
 	
+	private L2ProblemController L2PC;
+
+	string usingCont = "Press E again to release the Controller.  Press T to fling crate.";
+	string nearCont = "Press E to use the Controller.";
+	
 	enum CraneHandStates {
 		STATIONARY_DOWN, MOVING_DOWN, MOVING_UP, STATIONARY_UP
 	};
@@ -27,7 +32,7 @@ public class Level2ConsoleController : MonoBehaviour {
 		Player = GameObject.Find("Player");
 		GController = GameObject.Find("Controller").GetComponent("GameController") as GameController;
 		cage = GameObject.Find("CageBase").GetComponent("CageController")  as CageController;
-		
+		L2PC = GameObject.Find("FlowControllerObject").GetComponent("L2ProblemController") as L2ProblemController;
 		CraneLRHandle = GameObject.Find("L2CraneTopBlockLR");
 		Piston2 = GameObject.Find("Piston2");
 	}
@@ -43,16 +48,20 @@ public class Level2ConsoleController : MonoBehaviour {
 		}
 		
 		if(Input.GetKeyUp(KeyCode.E)) {
-			ShowingControllerUI = !ShowingControllerUI;
-			if (ShowingControllerUI) {
+			if (!ShowingControllerUI) {
+				ShowingControllerUI = true;
 				GController.HideInfoBox();
 				GController.DisablePlayer();
 				GController.ShowMousePointer();
-				GController.ShowInfoBox("Press E again to release the Controller.  Press T to fling crate.");
+				GController.ShowInfoBox(L2PC.GetProblemText() + "\n" + usingCont);
+				//GController.ShowMousePointer();
 			}
 			else {
+				ShowingControllerUI = false;
+				GController.HideInfoBox();
+				GController.ShowInfoBox(nearCont);
 				GController.EnablePlayer();
-				GController.HideMousePointer();
+				//GController.HideMousePointer();
 			}
 		}
 		
@@ -181,7 +190,7 @@ public class Level2ConsoleController : MonoBehaviour {
 	void OnTriggerEnter(Collider other) {
 		if (other.tag == "Player") {
 			NearController = true;
-			GController.ShowInfoBox("Press E to use the Controller.");
+			GController.ShowInfoBox(nearCont);
 		}
 	}
 	

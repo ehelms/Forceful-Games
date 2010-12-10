@@ -36,7 +36,7 @@ public class CageController : MonoBehaviour {
 
 	public delegate void EventHandler(GameObject e);
 	public event EventHandler CrashEvent;
-	
+	GameObject wolf;
 	
 	// Use this for initialization
 	void Start () {
@@ -53,9 +53,13 @@ public class CageController : MonoBehaviour {
 		initText();
 		fltText.text = weight + "";
 		
-		otherItems = new ArrayList();		
-		addItem(GameObject.Find("Wolf"));
+		otherItems = new ArrayList();	
+		GameObject wolf	 = GameObject.Find("Wolf");
+		addItem(wolf);
 		setWolfText("");
+		
+						//wolf.transform.Find(".020").gameObject.transform.Rotate(180,0,0, Space.Self);
+
 
 	}
 	
@@ -70,6 +74,9 @@ public class CageController : MonoBehaviour {
 	}
 	
 	void restoreCageLocation() {
+		if (cage == null) {
+			return;	
+		}		
 		GameObject[] list =  {cage, leftSide, rightSide, frontSide, backSide };
 		for(int i = 0; i < list.Length; i++) {
 			list[i].transform.position = cageLoc[i,0];
@@ -145,11 +152,11 @@ public class CageController : MonoBehaviour {
 	}
 	
 	void move() {
-		if (currentState == State.CRASHED) {
+		/*if (currentState == State.CRASHED) {
 			reset();
 			currentState = State.INITIAL;	
 		}
-		else if (currentState == State.INITIAL) {
+		else */ if (currentState == State.INITIAL) { 
 			currentState = State.MOVING;
 		}
 	}
@@ -165,6 +172,7 @@ public class CageController : MonoBehaviour {
 		if (setFinalState == FinalState.HURT) {
 				print("EXPLODE AND HURT");
 				explode();
+				//qwolf.transform.Rotate(0,0,180);
 				setWolfText("!@$% :(");
 		}
 		if (setFinalState == FinalState.NOTHING) {
@@ -202,6 +210,7 @@ public class CageController : MonoBehaviour {
 	
 		
 	public  void reset() {
+		currentState = State.INITIAL;
 		restoreCageLocation();
 		otherItems = new ArrayList();		
 		addItem(GameObject.Find("Wolf"));

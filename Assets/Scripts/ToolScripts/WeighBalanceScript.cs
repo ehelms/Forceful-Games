@@ -13,9 +13,6 @@ public class WeighBalanceScript : BaseToolController {
 	
 	private Vector3 HiddenPos;
 	
-	private LayerMask mask;
-	
-	
 	public override int getId() {
 		return id;
 	}
@@ -44,7 +41,6 @@ public class WeighBalanceScript : BaseToolController {
 		init();
 		Stud = gameObject.GetComponent("StudentModel") as StudentModel;
 		HiddenPos = new Vector3(ToolObject.transform.position.x, 0, ToolObject.transform.position.z); 
-		mask = 0; //1 << LayerMask.NameToLayer("Measure Layer");
 	}
 	
 	// Update is called once per frame

@@ -93,7 +93,6 @@ public class PlayQuiz : MonoBehaviour {
 	}
 	
 	void DoWindow(int id) {
-		string Result = "Enter";
 		//try 
 		{
 			GUILayout.BeginHorizontal();
