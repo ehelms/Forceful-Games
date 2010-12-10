@@ -87,7 +87,8 @@ public class L2ProblemController : MonoBehaviour {
 	public void newProblem() {
 		cage.reset();
 		resetRams();
-		currentProblem = (Problem) problemList[0];
+		int Qindx = (int) Random.Range(0, problemList.Count);				
+		currentProblem = (Problem) problemList[Qindx];
 		cage.setWeight(currentProblem.cageWeight);
 		for(int i = 0; i < 5; i++) {
 			rams[i].SetWeight(currentProblem.ramValues[i]);

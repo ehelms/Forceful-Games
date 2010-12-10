@@ -11,7 +11,7 @@
   },
  {"question": "A car starts from rest and accelerates uniformly at 1.7 m/s^2.  How long will it take the car to reach a speed of 24 m/s?",
    "answers" : [ "24 sec", "58 sec", "14 sec", "2 sec"],
-   "correct" : "14 m/s^2",
+   "correct" : "14 sec",
    "hints"   : ["Hint 1", "Hint 2", "Hint 3"]
   },
  {"question": "How much force is needed to accelerate a 500kg car at a rate of  4.00 m/s^2?",

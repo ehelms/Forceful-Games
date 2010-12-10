@@ -86,12 +86,14 @@ public class Level2FlowController : MonoBehaviour {
 		}
 		if( cageController.setFinalState == CageController.FinalState.EXPLODE ){
 			yield return StartCoroutine(newtonLevel2Controller.playFail(1));	
+			currentWolvesFreed++; 
+			student.addPoints(pointsForWolf);
+			
 			if (currentWolvesFreed < maxWolvesFreed) {
-					student.addPoints(pointsForWolf);
 					//yield return StartCoroutine(newtonLevel2Controller.playSuccess(currentWolvesFreed));
 					l2ProblemController.newProblem();
 			}
-			currentWolvesFreed++; 
+			
 			if( currentWolvesFreed == 3){
 					consoleController.setLocked();
 					yield return StartCoroutine(newtonLevel2Controller.playStartQuiz());
