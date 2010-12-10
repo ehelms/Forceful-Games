@@ -2,12 +2,12 @@
   {"question": "A passenger elevator operates at an average speed of 8 m/s. If the 20th floor is 72 meters above the first floor, how long does it take the elevator to go from the first floor to the 60th floor?",
    "answers" : [ "5 seconds", "9 seconds", "15 seconds", "20 seconds"],
    "correct" : "9 seconds",
-   "hints"   : ["Hint 1", "Hint 2", "Hint 3"]
+   "hints"   : ["Remember that the kinematic equation for velocity and distance with no acceleration is x = v*t.", "The elevator will travel 8 meters every second.  Try to figure out how many 8 meter segements are in 72 meters.", "Try dividing the distance by the velocity."]
   },
   {"question": "An object rolls east at a steady speed of 12 m/s for 3.0 seconds. What distance did it travel?",
    "answers" : [ "7.0 meters", "18 meters", "24 meters", "36 meters"],
    "correct" : "36 meters",
-   "hints"   : ["Hint 1", "Hint 2", "Hint 3"]
+   "hints"   : ["Remember that the kinematic equation for velocity and distance with no acceleration is x = v*t.", "The object will move 12 meters every second due to the speed.  Think about how many 12 meter segments there will be.", "Try multiplying the velocity times the time."]
   }
 
 ]
