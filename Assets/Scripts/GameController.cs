@@ -25,7 +25,7 @@ public class GameController : MonoBehaviour {
 	private string InfoMsg = "";
 	private int MsgIdx = 0;
 	
-	private bool CHEAT = false;
+	private bool CHEAT = true;
 	private int startLevel = 0;
 	
 	public Texture MessageBackGroundTexture;

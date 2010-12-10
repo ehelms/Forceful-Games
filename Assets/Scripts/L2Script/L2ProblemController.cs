@@ -98,9 +98,9 @@ public class L2ProblemController : MonoBehaviour {
 	public string GetProblemText() {
 		if (currentProblem == null) return null;
 		string txt = "";
-		txt = "Cage of weight " + currentProblem.cageWeight + "g needs " +
+		txt = "Cage of weight " + currentProblem.cageWeight + "Kg needs " +
 			currentProblem.finalForce + "N (force) to break it. Cage will accelerate at a rate of " + currentProblem.accel + "m/s/s." + 
-			" Load the cage with the Ram(s) to make it heavier, so that it experience enough force to break, when it hits the block.";
+			" Load the cage with the Ram(s) to increase the mass, so that it experience enough force to break, when it hits the block.  Be careful to not overload it with too much mass and risk hurting the wolf.";
 		return txt;
 	}
 	
