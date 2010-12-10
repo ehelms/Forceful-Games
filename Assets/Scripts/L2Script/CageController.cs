@@ -152,11 +152,11 @@ public class CageController : MonoBehaviour {
 	}
 	
 	void move() {
-		if (currentState == State.CRASHED) {
+		/*if (currentState == State.CRASHED) {
 			reset();
 			currentState = State.INITIAL;	
 		}
-		else if (currentState == State.INITIAL) {
+		else */ if (currentState == State.INITIAL) { 
 			currentState = State.MOVING;
 		}
 	}
@@ -172,7 +172,7 @@ public class CageController : MonoBehaviour {
 		if (setFinalState == FinalState.HURT) {
 				print("EXPLODE AND HURT");
 				explode();
-				//wolf.transform.Rotate(0,0,180);
+				//qwolf.transform.Rotate(0,0,180);
 				setWolfText("!@$% :(");
 		}
 		if (setFinalState == FinalState.NOTHING) {

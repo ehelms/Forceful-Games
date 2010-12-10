@@ -3,7 +3,26 @@
    "rams" : ["1", "2", "3", "4", "5" ],
    "acceleration" : "2",
    "force"   : "30"
+  },
+  {"cageWeight": "5",
+   "rams" : ["7", "9", "2", "4", "1" ],
+   "acceleration" : "8",
+   "force"   : "64"
+  },
+  {"cageWeight": "2",
+   "rams" : ["1", "7", "6", "4", "1" ],
+   "acceleration" : "4",
+   "force"   : "44"
+  },
+  {"cageWeight": "3",
+   "rams" : ["7", "2", "3", "1", "6" ],
+   "acceleration" : "7",
+   "force"   : "56"
+  },
+  {"cageWeight": "7",
+   "rams" : ["1", "2", "3", "4", "5" ],
+   "acceleration" : "9",
+   "force"   : "81"
   }
-
 ]
 
