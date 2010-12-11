@@ -8,6 +8,7 @@ public class FlowController : MonoBehaviour {
 	private Level1FlowController level1FlowController;
 	private Level2FlowController level2FlowController;
 	private GameEndsController EndController;
+	private DoorController doorController;
 	
 	// Use this for initialization
 	void Start () {
@@ -20,6 +21,7 @@ public class FlowController : MonoBehaviour {
 		level2FlowController = this.GetComponent("Level2FlowController") as Level2FlowController;
 		level2FlowController.enabled = false;
 		EndController = GetComponent("GameEndsController") as GameEndsController;
+		doorController = GameObject.Find("Door2").GetComponent("DoorController") as DoorController;
 		
 		introFlowController.FinishedEvent += introFlowControllerListener;
 		level1FlowController.FinishedEvent += level1FlowControllerListener;
@@ -57,6 +59,7 @@ public class FlowController : MonoBehaviour {
 	void level1FlowControllerListener(GameObject g){
 		level1FlowController.enabled = false;
 		level2FlowController.enabled = true;
+		doorController.UnlockDoor();
 		level2FlowController.startStory();
 	}
 	

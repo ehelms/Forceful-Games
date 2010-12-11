@@ -93,7 +93,8 @@ public class Level1FlowController : MonoBehaviour {
 		currentRamsKilled++; 
 		if( currentRamsKilled == 3){
 			consoleController.setLocked();
-			yield return StartCoroutine(newtonLevel1Controller.playStartQuiz());
+			onFinished();
+			//yield return StartCoroutine(newtonLevel1Controller.playStartQuiz());
 		}
 	}
 	

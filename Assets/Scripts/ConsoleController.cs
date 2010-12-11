@@ -115,6 +115,10 @@ public class ConsoleController : MonoBehaviour {
 	public void activate() {
 		Enabled = true;
 	}
+	
+	public bool isEnabled(){
+		return Enabled;
+	}
 
 	// will be called from hovercraft controller
 	void GenerateSetupForNextTrial() {

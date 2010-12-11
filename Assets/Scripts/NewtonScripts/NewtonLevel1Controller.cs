@@ -17,12 +17,13 @@ public class NewtonLevel1Controller : MonoBehaviour {
 	public enum Positions { LAB=1, LEVEL1, LEVEL2, LEVEL3 }; // return "Level1", "Level2", Level3 or Main for lobby
 	
 	void Start(){
-		state = States.LEVEL1;
+		state = States.HINT1;
 		newtonPosition = Positions.LAB;
 		fpsInput = GameObject.Find("Player").GetComponent("FPSInputController") as FPSInputController;
 		consoleController = GameObject.Find("console").GetComponent("ConsoleController") as ConsoleController;
 		gameController = GameObject.Find("Controller").GetComponent("GameController") as GameController;
 		ramTrigger = GameObject.Find("ram").GetComponent("RamTrigger") as RamTrigger;
+		Player = GameObject.Find("Player");
 		Player = GameObject.Find("Player");
 	}
 
@@ -42,7 +43,7 @@ public class NewtonLevel1Controller : MonoBehaviour {
 	public IEnumerator playIntro(){
 		yield return new WaitForSeconds(1);
 		yield return StartCoroutine(playClip("Audio/Level1/NewtonL1Intro", true));
-		state = States.LEVEL1;
+		state = States.HINT1;
 	}
 	
 	public IEnumerator playSuccess(int successNumber){
@@ -56,7 +57,7 @@ public class NewtonLevel1Controller : MonoBehaviour {
 	}
 	
 	public IEnumerator playFail(int failNumber){
-		yield return StartCoroutine(playClip("NewtonFail", true));
+		yield return StartCoroutine(playClip("Audio/Level1/Newton1-Fail", true));
 	}
 	
 	public IEnumerator playStartQuiz(){
@@ -93,13 +94,13 @@ public class NewtonLevel1Controller : MonoBehaviour {
 	
 	IEnumerator performAction(){
 		if( state == States.HINT1 ){
-			yield return StartCoroutine(playClip("Audio/Level1/Level1Hint1", false));
+			yield return StartCoroutine(playClip("Audio/Level1/Newton1-Hint1", false));
 			state = States.HINT2;
 		} else if( state == States.HINT2 ){
-			yield return StartCoroutine(playClip("Audio/Level1/Level1Hint2", false));
+			yield return StartCoroutine(playClip("Audio/Level1/Newton1-Hint2", false));
 			state = States.HINT3;
 		} else if( state == States.HINT3 ){
-			yield return StartCoroutine(playClip("Audio/Level1/Level1Hint3", false));
+			yield return StartCoroutine(playClip("Audio/Level1/Newton1-Hint3", false));
 		} 
 	}
 	

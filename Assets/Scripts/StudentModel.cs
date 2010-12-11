@@ -37,6 +37,7 @@ public class StudentModel : MonoBehaviour {
 	private Rect ToolBarRect;
 	
 	private GameController Controller;
+	private ConsoleController level1ConsoleController;
 	
 	// Use this for initialization
 	void Start () {
@@ -50,6 +51,7 @@ public class StudentModel : MonoBehaviour {
 		MeasuringTape = GameObject.Find("Player").GetComponent("MeasuringScaleController") as BaseToolController;
 		FormulaSheet = GameObject.Find("Player").GetComponent("FormulaController") as BaseToolController;
 		ScaleTool  = GameObject.Find("Player").GetComponent("WeighBalanceScript") as BaseToolController;
+		level1ConsoleController = GameObject.Find("console").GetComponent("ConsoleController") as ConsoleController;
 	
 		
 		
@@ -85,11 +87,18 @@ public class StudentModel : MonoBehaviour {
 		
 		if (toolId >= 0 && activeTool < 0) {
 			if (Controller.isCheating() || ToolsAvail[toolId] ) { //if you are cheating or the tool is avail
-				activeTool = toolId;
-				Tools[toolId].showTool();
+				if( toolId != 3 ){
+					if( !level1ConsoleController.isEnabled() ){
+						activeTool = toolId;
+						Tools[toolId].showTool();
+					} 
+				} else {
+					activeTool = toolId;
+					Tools[toolId].showTool();
+				}
 			}
 			else {
-				Controller.ShowMessageBox(ToolsMessage[toolId]);
+				//Controller.ShowMessageBox(ToolsMessage[toolId]);
 			}
 		}
 		else if (toolId > 0 && toolId == activeTool) {
@@ -135,10 +144,10 @@ public class StudentModel : MonoBehaviour {
 	//function to used to tell if two floats are close enough together (within 1)
 	 bool close(float a, float b) {
 		float c = a - b;
-		if (c < 1  && c > 0 ) {
+		if (c < 1  && c >= 0 ) {
 			return true;
 		}
-		if (-c < 1 && -c >0 ) {
+		if (-c < 1 && -c >= 0 ) {
 			return true;
 		}
 		return false;

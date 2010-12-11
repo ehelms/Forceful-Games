@@ -18,7 +18,7 @@ public class NewtonLevel2Controller : MonoBehaviour {
 	
 	void Start(){
 		state = States.LEVEL2;
-		newtonPosition = Positions.LEVEL2;
+		newtonPosition = Positions.LEVEL1;
 		fpsInput = GameObject.Find("Player").GetComponent("FPSInputController") as FPSInputController;
 		consoleController = GameObject.Find("console").GetComponent("ConsoleController") as ConsoleController;
 		gameController = GameObject.Find("Controller").GetComponent("GameController") as GameController;
